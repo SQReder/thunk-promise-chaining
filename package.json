@@ -5,12 +5,24 @@
   "dependencies": {
     "@types/jest": "24.0.11",
     "@types/node": "11.13.4",
+    "@types/ramda": "^0.26.6",
     "@types/react": "16.8.13",
     "@types/react-dom": "16.8.4",
+    "@types/react-redux": "^7.0.6",
+    "classcat": "^3.2.5",
+    "node-sass": "^4.11.0",
+    "prettier": "^1.17.0",
+    "ramda": "^0.26.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-redux": "^7.0.2",
     "react-scripts": "2.1.8",
-    "typescript": "3.4.3"
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0",
+    "tslint": "^5.16.0",
+    "tslint-config-prettier": "^1.18.0",
+    "typesafe-actions": "^4.0.0",
+    "typescript": "3.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -26,5 +38,10 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "prettier": {
+    "printWidth": 120,
+    "jsxBracketSameLine": true,
+    "trailingComma": "es5"
+  }
 }
