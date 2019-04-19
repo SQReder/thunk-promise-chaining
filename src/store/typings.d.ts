@@ -4,8 +4,13 @@ declare module "ThunkTypes" {
   import { RootAction, RootState } from "Store";
   import { AnyAction } from "redux";
 
-  export type AsyncThunkAction<R> = ThunkAction<Promise<ReturnType<R>>, any, ThunkExtraArguments, AnyAction>;
-  export type SyncThunkAction<R> = ThunkAction<ReturnType<R>, any, ThunkExtraArguments, AnyAction>;
+  /**
+   * We should use loose typings for root state argument to avoid recursive type definitions
+   */
+  type LooseRootState = any;
+
+  export type AsyncThunkAction<R> = ThunkAction<Promise<ReturnType<R>>, LooseRootState, ThunkExtraArguments, AnyAction>;
+  export type SyncThunkAction<R> = ThunkAction<ReturnType<R>, LooseRootState, ThunkExtraArguments, AnyAction>;
 
   export type RootDispatch = ThunkDispatch<RootState, ThunkExtraArguments, RootAction>;
 }
