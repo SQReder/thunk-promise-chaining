@@ -17,7 +17,7 @@ interface SampleComponentState {
   fetchCount?: number;
 }
 
-class SampleComponent extends PureComponent<Props, SampleComponentState> {
+export class SampleComponent extends PureComponent<Props, SampleComponentState> {
   constructor(props: Props) {
     super(props);
 
@@ -37,7 +37,7 @@ class SampleComponent extends PureComponent<Props, SampleComponentState> {
       })
       .catch(() => {
         this.setState(state => ({
-          fetchResult: "success",
+          fetchResult: "fail",
           fetchCount: -1,
         }));
       });
@@ -51,9 +51,10 @@ class SampleComponent extends PureComponent<Props, SampleComponentState> {
     this.renderSample
   );
 
-  render = () => {
+  render() {
     const { samples, state } = this.props;
     const { fetchCount, fetchResult } = this.state;
+    const renderedSamples = this.renderSamples(samples);
     return (
       <div className={cc(styles.wrapper)}>
         <div>
@@ -61,11 +62,11 @@ class SampleComponent extends PureComponent<Props, SampleComponentState> {
         </div>
         <div>
           <div>Store State: {state}</div>
-          <ul>{this.renderSamples(samples)}</ul>
+          <ul>{renderedSamples}</ul>
         </div>
       </div>
     );
-  };
+  }
 }
 
 interface StateToProps {
